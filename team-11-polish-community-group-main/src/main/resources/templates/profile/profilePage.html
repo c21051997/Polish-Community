@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/profile/profile.css">
+    <script src="/js/profile/profile.js" defer></script>
+
+</head>
+<section class="profile-container" id="profile-container" layout:fragment="content">
+    <div class="profile-card" id="profile-card">
+        <!--<h3 id="profile-heading">Profile Page</h3>-->
+        <img id="profile-picture" src="/assets/default-profile.jpg" alt="Profile Picture" class="profile-picture">
+        <div class="profile-info">
+            <h2 class="full-name" id="full-name">Name</h2>
+            <p id="organisation" class="organisation"></p>
+            <p class="email" id="email"></p>
+            <p id="bio" class="optional-field"></p>
+            <p id="date-of-birth" class="optional-field"></p>
+            <p id="phone-number" class="optional-field"></p>
+        </div>
+        <button class="edit-profile-btn" id="edit-profile-btn">Edit Profile</button>
+    </div>
+    <form id="edit-profile-form" class="profile-card" style="display: none" th:action="@{/update}" method="post" enctype="multipart/form-data">
+        <img id="edit-profile-picture" src="/assets/default-profile.jpg" alt="Profile Picture" class="profile-picture">
+        <input type="file" id="profile-picture-input" name="newPicture" accept="image/*" style="display: none;">
+        <br>
+        <button type="button" id="change-profile-picture-btn">Change Profile Picture</button>
+        <input type="hidden" id="original-profile-picture" name="profilePicture" readonly>
+        <input type="text" class="not-editable" id="edit-full-name" readonly>
+        <input type="text" class="not-editable" id="edit-email" readonly>
+        <input type="text" class="not-editable" id="edit-organisation" readonly placeholder="Organisation">
+        <textarea id="edit-bio" name="bio" placeholder="Bio" class="optional-field"></textarea>
+        <input type="text" class="not-editable" id="edit-date-of-birth" readonly>
+        <input type="tel" id="edit-phone-number" name="phoneNumber" placeholder="Phone Number" class="optional-field">
+        <div class="checkbox-container">
+            <label><input type="checkbox" id="show-dob" name="showDob"> Show Date of Birth</label>
+            <label><input type="checkbox" id="show-number" name="showPhoneNumber"> Show Phone Number</label>
+        </div>
+        <button type="submit" class="edit-profile-btn">Save Changes</button>
+        <button type="button" id="cancel-edit" class="edit-profile-btn">Cancel</button>
+    </form>
+</section>
+</html>

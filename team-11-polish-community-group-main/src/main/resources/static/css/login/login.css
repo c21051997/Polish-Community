@@ -1,0 +1,36 @@
+* {
+    font-family: "inter", sans-serif;
+}
+
+form {
+    justify-items: baseline;
+    padding: 30px;
+    max-width: max-content;
+    width: 300px;
+    box-sizing: border-box;
+    margin: 50px auto;
+    /*margin-top: 15px;*/
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+
+}
+
+input[type="email"], input[type="password"]{
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: 80%;
+    margin-bottom: 10px;
+}
+input[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--alternate-text);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}

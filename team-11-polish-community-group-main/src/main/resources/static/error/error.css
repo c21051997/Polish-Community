@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    margin: 0;
+}
+
+#error-container {
+    text-align: center;
+}
+
+#error-code {
+    font-size: 72px;
+    color: #dc3545;
+}
+
+#error-message {
+    font-size: 24px;
+    color: #6c757d;
+}

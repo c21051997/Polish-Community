@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
+    <head>
+        <meta charset="UTF-8">
+        <!--Custom styles-->
+        <link rel="stylesheet" href="/css/information/infoStyles.css">
+        <link rel="stylesheet" href="/css/infoHeadingFragment/infoHeadingFragment.css">
+
+        <!--Custom scripts -->
+        <script src="/js/infoHeadingFragment/infoHeadingFragment.js" defer></script>
+        <script src="/js/information/infoScript.js" defer></script>
+
+        <title th:text="${selectedInfo.getInfoTitle()}">DB Info</title>
+    </head>
+
+    <!--Removed <body> tag as it is added as a component to the main layout-->
+    <section layout:fragment="content">
+        <div th:replace="~{infoHeadingFragment/infoHeadingFragment :: breadcrumb}"></div>
+        <main class="container">
+            <section class="head-container">
+                <section class="sub-head-main-container">
+                    <a id="backToHeadings" href="#"><img src="/assets/back-arrow.png" alt="back-arrow"></a>
+                    <h1 th:text="${selectedInfo.getInfoTitle()}">Information Title</h1>
+                </section>
+                <aside class="sub-head-edit-container">
+                    <a id="editButtonLink" th:href="@{/info/edit/{id} (id=${selectedInfo.getInformationId()})}" sec:authorize="isAuthenticated()" >
+                        <button><strong>Edit</strong></button></a>
+                </aside>
+            </section>
+            <section class="main-content">
+                <!-- Main content section displaying the information markup -->
+                <article id="markupcontent" th:utext="${html}">
+                    <!-- Dynamic content will be inserted here -->
+                </article>
+            </section>
+        </main>
+    </section>
+</html>

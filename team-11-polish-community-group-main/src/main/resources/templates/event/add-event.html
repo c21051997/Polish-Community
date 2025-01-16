@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Event</title>
+  <link rel="stylesheet" href="/css/events/add-event.css">
+</head>
+<section layout:fragment="content">
+  <a th:href="@{/event}" id="backToHeadings" class="backButton">
+    <p><i class="bi bi-chevron-left"></i> Back to Events</p>
+  </a>
+
+  <h1 th:text="${formAction.contains('edit')} ? 'Edit Event' : 'Add New Event'">Add New Event</h1>
+
+  <form th:action="@{${formAction}}" th:method="post" th:object="${event}" id="addEventForm">
+    <fieldset>
+      <!-- Hidden Event ID -->
+      <input th:field="*{event_id}" type="hidden" />
+      <input th:field="*{user_id}" type="hidden" />
+
+      <!-- Event Title -->
+      <label th:for="*{event_title}">Event Title</label>
+      <input type="text" th:field="*{event_title}" placeholder="Enter the title for the event...">
+      <div class="alert" th:errors="*{event_title}" th:if="${#fields.hasErrors('event_title')}"></div>
+
+      <!-- Event Description -->
+      <label th:for="*{description}">Event Description</label>
+      <textarea th:field="*{description}" placeholder="Enter the event description..."></textarea>
+      <div class="alert" th:errors="*{description}" th:if="${#fields.hasErrors('description')}">Description Error</div>
+
+      <div class="event-date-and-location-card">
+          <!-- Event Date -->
+          <div class="event-date-card">
+            <label th:for="*{event_date}">Event Date</label>
+            <input class="event-date" type="date" th:field="*{event_date}">
+            <div class="alert" th:errors="*{event_date}" th:if="${#fields.hasErrors('event_date')}">Date Error</div>
+          </div>
+          <!-- Event Time -->
+          <div class="event-time-card">
+            <label th:for="*{event_time}">Event Time</label>
+            <input type="time" th:field="*{event_time}">
+            <div class="alert" th:errors="*{event_time}" th:if="${#fields.hasErrors('event_time')}">Time Error</div>
+          </div>
+          <!-- Location -->
+          <div class="event-location-card">
+            <label th:for="*{location}">Location</label>
+            <input class="event-location-input" type="text" th:field="*{location}" autocomplete="off" placeholder="Enter the event location...">
+            <div class="alert" th:errors="*{location}" th:if="${#fields.hasErrors('location')}">Location Error</div>
+          </div>
+      </div>
+
+      <!-- Image URL -->
+      <label th:for="*{imageUrl}">Image URL</label>
+      <input type="text" th:field="*{imageUrl}" placeholder="Enter the image URL...">
+      <div class="alert" th:errors="*{imageUrl}" th:if="${#fields.hasErrors('imageUrl')}">Image URL Error</div>
+
+      <!-- Why Join -->
+      <label th:for="*{whyJoin}">Why Join</label>
+      <textarea th:field="*{whyJoin}" placeholder="Explain why someone should join..."></textarea>
+      <div class="alert" th:errors="*{whyJoin}" th:if="${#fields.hasErrors('whyJoin')}">Why Join Error</div>
+
+      <!-- Benefits -->
+      <label th:for="*{benefits}">Benefits</label>
+      <textarea th:field="*{benefits}" placeholder="List the benefits..."></textarea>
+      <div class="alert" th:errors="*{benefits}" th:if="${#fields.hasErrors('benefits')}">Benefits Error</div>
+    </fieldset>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <a th:href="@{/event}" id="cancelButton" class="button cancel">Cancel</a>
+      <button th:text="${formAction.contains('edit')}?'Update Event':'Add Event'" type="submit" class="submit">Add Event</button>
+    </div>
+  </form>
+</section>
+</html>

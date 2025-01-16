@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>News Page</title>
+        <link rel="stylesheet" href="/css/news/newsStyles.css">
+        <link rel="stylesheet" href="/css/news/addNews.css">
+        <script src="/js/news/addNews.js" defer></script>
+        <script src="/js/news/newsScripts.js" defer></script>
+    </head>
+    <section layout:fragment="content" class="content">
+        <div class="general-headings-layout">
+                <h1>Community News</h1>
+                <button onclick="openNewsForm()" id="openModalBtn" class="openModalBtn" sec:authorize="isAuthenticated()"  >Add News</button>
+        </div>
+        <main class="news-container">
+            <!-- Main news card -->
+            <div class="news-card main-card">
+                <div class="main-card-container">
+                    <div class="text-container">
+                        <a th:href="${newsList[0].getNews_link()}"><h2 th:text="${newsList[0].getNews_title()}"></h2></a>
+                        <p class="summary" th:text="${newsList[0].getNews_summary()}"></p>
+                    </div>
+                    <div class="image-container">
+                        <img th:src="${newsList[0].getNews_image_url()}" alt="News Image">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <p class="source">Source: <span th:text="${newsList[0].getNews_source()}"></span></p>
+                    <a th:href="@{/editNews/{id}(id=${newsList[0].getNews_id()})}" class="modify-btn modify-link" sec:authorize="isAuthenticated()"  >Modify</a>
+                    <p class="date" th:text="${newsList[0].getNews_upload_date()}"></p>
+                </div>
+            </div>
+
+            <!-- Smaller news cards -->
+            <div class="small-cards">
+                <div class="news-card small-card" th:each="news,newsStat : ${newsList}" th:if="${newsStat.index != 0}">
+                    <a th:href="${news.getNews_link()}"><h3 th:text="${news.getNews_title()}"></h3></a>
+                    <p class="summary" th:text="${news.getNews_summary()}"></p>
+                    <div class="card-footer">
+                        <p class="source">Source: <span th:text="${news.getNews_source()}"></span></p>
+                        <p class="date" th:text="${news.getNews_upload_date()}"></p>
+                        <a th:href="@{/editNews/{id}(id=${news.getNews_id()})}" class="modify-btn modify-link" sec:authorize="isAuthenticated()">Modify</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add News Button -->
+            <div>
+
+                <!-- Empty section to be replaced by the fragment -->
+                <section id="newsForm" style="display: none;" >
+                    <!-- Fragment will be loaded here dynamically -->
+                    <div class="news-card small-card"  th:replace="news/addNews :: addNewsForm"></div>
+                </section>
+            </div>
+        </main>
+    </section>
+</html>

@@ -1,0 +1,151 @@
+
+
+section {
+   display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Tiles Section */
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 20px;
+    margin: 20px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for individual tiles */
+.tile {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Align text to the left */
+    width: 250px; /* Fixed width for tiles */
+    height: 150px; /* Adjusted height for tiles */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out the content inside the tile */
+    transition:transform ease-in-out;
+}
+
+/* Logo and title container */
+.tile-logo-title {
+    display: flex;
+    align-items: center; /* Align logo and title vertically */
+    gap: 10px; /* Space between logo and title */
+    margin-bottom: 10px; /* Space between logo/title and description */
+}
+
+/* Logo inside tile */
+.tile-logo {
+    width: 30px; /* Adjusted logo size for better presentation */
+    height: 30px;
+    object-fit: cover;
+}
+
+/* Title inside tile */
+.tile-title {
+    font-size: 1.2rem; /* Smaller title font */
+    color: white; 
+    margin-bottom: 0; /* Remove bottom margin */
+}
+
+/* Description inside tile */
+.tile-description {
+    font-size: 0.9rem; /* Smaller description text */
+    color: white; /* Lighter color for description */
+    line-height: 1.4;
+    margin-top: 15px; /* Add space between title/logo and description */
+}
+
+/* Styling the links */
+.tileLink {
+    text-decoration: none; /* Remove default underline */
+    color: inherit; /* Inherit color from the parent (tile) */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to the left */
+    height: 100%; /* Ensures the link takes full height of the tile */
+}
+
+.tile:hover{
+    transform: scale(1.03);
+}
+
+.tileLink:hover {
+    /*background-color: #f0f0f0; !* Light background on hover *!*/
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.tileLink:active {
+    transform: scale(0.98); /* Slightly shrink on click */
+}
+
+/* Adding spacing between the tiles */
+.tile:not(:last-child) {
+    margin-right: 20px;
+}
+
+.topTile {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: row;
+}
+
+#feedTile {
+    background: linear-gradient(135deg, #FF8008, #FFC837); /* Pinkish gradient */
+    color: white;
+}
+
+#newsTile {
+    background: linear-gradient(135deg, #42E695, #3BB2B8); 
+    color: white;
+}
+
+#eventsTile {
+    background: linear-gradient(135deg, yellowgreen, #006400);
+    color: white;
+}
+
+#infoTile {
+    background: linear-gradient(135deg, #6A11CB, #2575FC);
+    color: white;
+}
+
+#aboutTile {
+    background: linear-gradient(135deg, #9D50BB, #6E48AA);
+    color: white;
+}

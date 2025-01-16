@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
+>
+<head>
+    <title>Categories</title>
+    <link rel="stylesheet" href="/css/Categories/categories.css">
+    <script defer src="/js/Categories/categories.js"></script>
+</head>
+<section class="info-database" layout:fragment="content" >
+    <div class="title-section">
+    <h1>Community Information Database</h1>
+        <button id="add-new-category" sec:authorize="isAuthenticated()">
+            <i class="bi bi-folder-plus"></i>
+            New Category
+        </button>
+    </div>
+    <div class="card-container" id="card-container">
+        <!-- cards will be added here with javascript -->
+    </div>
+    <div id="create-new-modal" class="create-new-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title-desc">
+                    <h2>Create New Category</h2>
+                    <p>Add a new category to organize Community information</p>
+                </div>
+                <span class="close-modal" id="closeModalBtn"><i class="bi bi-x-lg"></i></span>
+            </div>
+            <form id="category-form">
+                <label for="categoryTitle">Category Name
+                <input type="text" id="categoryTitle" name="categoryTitle"
+                       placeholder="eg, Health & Wellness"
+                       required>
+                </label>
+                <label for="categoryDescription">Description
+                <textarea  id="categoryDescription" name="categoryDescription"
+                          placeholder="Briefly describe this category..."
+                          rows="4"
+                          required></textarea>
+                </label>
+                    <div class="form-buttons">
+                        <button type="button" class="cancel-button close-modal">Cancel</button>
+                        <button class="submit-button" type="submit">Create Category</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+</section>
+</html>

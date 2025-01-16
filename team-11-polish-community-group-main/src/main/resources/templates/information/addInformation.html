@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Information</title>
+  <!--  Stylesheet for rich text editor-->
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+  <script defer src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+  <!--  Scripts for converting markdown to html and vice-versa.-->
+  <script defer src="https://cdn.jsdelivr.net/npm/turndown@7.0.0/dist/turndown.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/marked@15.0.2/lib/marked.umd.min.js"></script>
+
+  <!--  Custom scripts-->
+  <link rel="stylesheet" href="/css/information/AddInfoStyles.css">
+  <script defer src="/js/information/addInfoScript.js"></script>
+  <script defer src="/js/information/infoScript.js"></script>
+</head>
+
+<!--Removed <body> tags as we are creating each feature as a layout component-->
+<section layout:fragment="content">
+  <a href="#" id="backToHeadings" class="backButton">
+    <strong><p><i class="bi bi-chevron-left"></i>
+      <span id="backArrowTitle">  Back to headings</span></p></strong>
+  </a>
+
+  <!--  Using same page for both edit and add information feature-->
+  <h1 th:text="${formAction.contains('edit')} ? 'Edit Information' : 'Add New Information'"></h1>
+
+  <!--  Get action method from the controller based on the operation for add/edit-->
+  <form th:action="@{${formAction}}" th:method="post" th:object="${newInfo}" id="addInfoForm">
+    <fieldset>
+      <input th:field="*{informationId}" type="hidden"/>
+      <input th:field="*{categoryId}" type="hidden"/>
+      <input th:field="*{createdBy}" type="hidden"/>
+      <input th:field="*{createdDate}" type="hidden"/>
+      <input th:field="*{tagId}" type="hidden"/>
+      <input type="hidden" th:field="*{infoDescription}"/>
+      <label th:for="*{infoTitle}">Title</label>
+      <input type="text" th:field="*{infoTitle}">
+      <div class="alert" th:errors="*{infoTitle}" th:if="${#fields.hasErrors('infoTitle')}">Title Error</div>
+
+      <label th:for="*{shortDescription}">Short Description</label>
+      <textarea th:field="*{shortDescription}"></textarea>
+      <div class="alert" th:errors="*{shortDescription}" th:if="${#fields.hasErrors('shortDescription')}">Short description Error</div>
+
+      <!--Rich text editor for storing formatted text -->
+      <label for="editor">Content</label>
+      <div id="editor"></div>
+
+      <div class="alert" th:errors="*{infoDescription}" th:if="${#fields.hasErrors('infoDescription')}">Description Error</div>
+    </fieldset>
+    <div class="buttons">
+      <!--Add redirection dynamically through js-->
+      <a href="#" id="cancelButton" class="button cancel">Cancel</a>
+
+      <!--Change button based on the operation-->
+      <button id="submitButton" th:text="${formAction.contains('edit')}?'Update Information':'Add Information'" type="submit" class="submit"></button>
+    </div>
+  </form>
+</section>
+
+</html>

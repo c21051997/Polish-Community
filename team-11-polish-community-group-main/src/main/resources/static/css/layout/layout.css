@@ -1,0 +1,264 @@
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+
+:root {
+    --primary-color: #000000;
+    --secondary-color: #F4F4F5;
+    --border-color: #E5E4E6;
+    --text-color: #09090B;
+    --alternate-text: #ffffff;
+    --background-color: #ffffff;
+    --tertiary-color: #DC143C;
+    --secondary-text-color: #71717A;
+    --warning-color: red;
+}
+
+
+
+body {
+    padding-top: 10vh;
+    min-height: 100vh; /* Ensures the body covers the viewport height */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.main-content {
+    flex: 1; /* Allows the main content to grow and push the footer down */
+    
+}
+
+.sidebar {
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    padding: 0;
+    position: fixed;
+    height: 64px;
+}
+
+
+/* Navbar container */
+nav.sidebar {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    flex-direction: row; /* Horizontal layout */
+    width: 100%; /* Full width of the screen */
+    position: relative; /* Ensure positioning for the right section */
+    padding: 10px 20px; /* Padding on left and right */
+}
+
+.navMiddle {
+    display: flex;
+    justify-content: center; /* Center the navMiddle horizontally */
+    align-items: center;
+}
+
+.navRight {
+    display: flex;
+    align-items: center; 
+    gap: 15px; /* Space between the language selector and profile */
+}
+
+.navLeft {
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.logoImage {
+    width: 55px; 
+    height: 55px; 
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none; 
+    color: #fff; 
+    padding: 6px 8px; 
+    font-size: 12px; 
+    font-family: Arial, sans-serif; 
+    font-weight: 300;
+    transition: background-color 0.3s ease; 
+}
+
+.navLink:hover {
+    background-color: #555;
+    border-radius: 5px; 
+}
+
+.logoLink {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-decoration: none; 
+    color: #fff;
+    font-size: 12px; 
+    font-family: Arial, sans-serif; 
+    font-weight: 300; 
+    transition: background-color 0.3s ease; /* hoover effect transition*/
+}
+
+.logoLink:hover {
+    background-color: #555; 
+}
+
+.navIcons {
+    width: 15px; 
+    height: 15px; 
+    margin-right: 5px; 
+}
+
+.languageSelector {
+    display: flex;
+    align-items: center; /* Vertically center the icon and select box */
+    gap: 5px; 
+}
+
+.languageSelector select {
+    background-color: #333; 
+    color: white; 
+    border: none; 
+    padding: 5px;
+    font-size: 12px; 
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+}
+
+.footer {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* grid layout */
+    grid-template-rows: auto auto; 
+    gap: 20px; 
+    background-color: gray; 
+    color: #fff; 
+    padding: 20px;
+    border-top: 1px solid #D3D3D3;
+    margin-top: auto; /* Push footer below content */
+}
+
+
+.about {
+    grid-column: 1 / 2;/* first column */
+}
+
+.links {
+    grid-column: 2 / 3; /* second column */
+}
+
+.connect {
+    grid-column: 3 / 4; /* third column */
+}
+
+.copyright {
+    grid-column: 1 / 4; /* all columns */
+    text-align: center;
+    font-size: 12px;
+    color: #bbb;
+    margin-top: 20px;
+}
+
+.footerTitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footerText {
+    font-size: 14px;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+.footerLinks {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footerLinks li {
+    margin-bottom: 5px;
+}
+
+.footerLink {
+    text-decoration: none;
+    color: #00bfff;
+    transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+    color: #1e90ff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon img:hover {
+    transform: scale(1.2);
+}
+
+.navText {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* ACCOUNT OPTIONS STYLING */
+/* Dropdown styles */
+#account-options {
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 50px;
+    top: 60px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.proficon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ACCOUNT OPTIONS STYLING END */

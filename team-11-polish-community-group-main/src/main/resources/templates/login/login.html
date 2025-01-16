@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{layout/layout}">>
+<head>
+    <title>Login Form </title>
+    <link rel="stylesheet" th:fragment="loginstyle" href="/css/login/login.css">
+</head>
+<body layout:fragment="content">
+
+    <form th:action="@{/login}" method="post">
+<!--        option to login via user name -->
+<!--        <div><label> Username : <input type="text" name="username"/> </label></div>-->
+        <div th:if="${param.error}">
+            <p class="error" th:text="${session.error}">Invalid username or password</p>
+            <p>Please try again or <a th:href="@{/register}">create an account</a>.</p>
+        </div>
+        <div><label>Email: <input type="email" name="username" required="required"> </label></div>
+        <div><label> Password: <input type="password" name="password" required="required"/> </label></div>
+        <div><input type="submit" value="Sign In"/></div>
+    </form>
+    <script src="js/script.js"></script>
+    <script th:fragment="loginscript" src="js/login/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/admin/adminBoardStyles.css">
+</head>
+<section layout:fragment="content">
+    <div class="header">
+        <h1>Admin Dashboard</h1>
+    </div>
+
+    <div class="statistics">
+        <div class="stat"><i class="bi bi-people"></i>
+            <aside><p> Total Users</p><strong><span th:text="*{adminBoard.getTotalNoOfUsers()}"></span></strong></p></aside>
+        </div>
+        <div class="stat"><p><i class="bi bi-file-earmark-text"></i>
+            <aside><p> Total Posts</p><strong><span th:text="*{adminBoard.getTotalPosts()}"></span></strong></p></aside>
+        </div>
+        <div class="stat"><p><i class="bi bi-calendar-week"></i>
+            <aside><p> Upcoming Events</p><strong><span th:text="*{adminBoard.getUpcomingEvents()}"></span></strong></p>
+            </aside>
+        </div>
+        <div class="stat"><p><i class="bi bi-chat-left-dots"></i>
+            <aside><p> New Comments</p><strong><span th:text="*{adminBoard.getNewComments()}"></span></strong></p>
+            </aside>
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <div class="card">
+            <h3>Manage Users</h3>
+            <p>View and manage user accounts</p>
+            <a th:href="@{/admin/userInfo}">
+                <button>Manage</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Feeds Management</h3>
+            <p>Review and manage community feeds</p>
+            <a th:href="@{/feed}">
+                <button>Manage</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Event Management</h3>
+            <p>Create and manage community events</p>
+            <a th:href="@{/event}">
+                <button>Manage</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Database Management</h3>
+            <p>Manage community information database</p>
+            <a th:href="@{/categories}">
+                <button>Manage</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Comments Moderation</h3>
+            <p>Review and moderate user comments</p>
+            <a th:href="@{/feed}">
+                <button>Manage</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>News Management</h3>
+            <p>Create and manage community news</p>
+            <a th:href="@{/news}">
+                <button>Manage</button>
+            </a>
+        </div>
+    </div>
+
+</section>
+</html>

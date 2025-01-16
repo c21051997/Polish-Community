@@ -1,0 +1,36 @@
+
+
+/* Ensure breadcrumb container behaves as a block-level element */
+#breadcrumbContainer {
+    display: block !important;  /* Forces it to behave as a block-level container */
+    margin-bottom: 20px;
+    padding: 10px 0;
+    clear: both; /* Ensure no flex conflicts */
+}
+
+/* Breadcrumb list itself */
+#breadcrumb {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;  /* Ensures breadcrumb items appear inline */
+}
+
+/* Breadcrumb list items */
+#breadcrumb li {
+    display: inline-block;  /* Prevent flex from affecting breadcrumb */
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Links within the breadcrumb */
+#breadcrumb a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 0 5px;
+}
+
+/* Hover effect for breadcrumb links */
+#breadcrumb a:hover {
+    text-decoration: underline;
+}

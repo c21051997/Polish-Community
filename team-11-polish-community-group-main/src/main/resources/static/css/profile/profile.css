@@ -1,0 +1,105 @@
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 64px - 100px); /* Adjust for header and footer */
+    padding: 20px;
+}
+
+.profile-card {
+    background-color: var(--secondary-color);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid var(--border-color);
+}
+
+.full-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+.email, #edit-email {
+    font-size: 14px;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+.organisation {
+    font-size: 16px;
+    color: var(--secondary-text-color);
+    margin-bottom: 15px;
+}
+/*#edit-organisation {*/
+/*    color: var(--text-color);*/
+/*}*/
+.optional-field, #edit-bio, #edit-phone-number, #edit-phone-number {
+    font-size: 14px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.edit-profile-btn {
+    background-color: var(--secondary-text-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#edit-profile-form input[type="text"],
+#edit-profile-form input[type="tel"],
+#edit-profile-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid var(--secondary-text-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.not-editable {
+    cursor: not-allowed;
+    background-color: var(--secondary-color) !important;
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+        padding: 20px;
+    }
+
+    .profile-picture {
+        width: 120px;
+        height: 120px;
+    }
+
+    .full-name{
+        font-size: 20px;
+    }
+
+    .email, #edit-email {
+        font-size: 14px;
+    }
+
+    .optional-field, #edit-bio, #edit-phone-number{
+        font-size: 12px;
+    }
+}
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add News</title>
+    <link rel="stylesheet" href="/css/news/addNews.css">
+    <script src="/js/news/addNews.js" defer></script>
+</head>
+    <section th:fragment="addNewsForm">
+
+    <!-- Modal structure -->
+        <div id="modal" class="modal">
+            <div class="overlay" id="overlay"></div>
+            <div class="modal-content" >
+                <span class="close-btn">&times;</span>
+                <form id="newsForm" th:action="@{/news/add}" th:method="post" th:object="${news}">
+                    <h2>Create News</h2>
+
+                    <div class="form-group">
+                        <label th:for="newsTitle">News Title</label>
+                        <input type="text" id="newsTitle" name="newsTitle" th:field="*{news_title}" placeholder="Enter news title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label th:for="newsDescription">Description</label>
+                        <textarea id="newsDescription" name="newsDescription" th:field="*{news_summary}" placeholder="Briefly describe this news article..." rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label th:for="newsImageUrl">Image URL (optional)</label>
+                        <input type="text" id="newsImageUrl" name="newsImageUrl" th:field="*{news_image_url}" placeholder="Enter image URL">
+                    </div>
+
+                    <div class="form-group">
+                        <label th:for="newsSource">Source</label>
+                        <input type="text" id="newsSource" name="newsSource" th:field="*{news_source}" placeholder="Enter source" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label th:for="newsLink">News Link</label>
+                        <input type="text" name="newsLink" th:field="*{news_link}" placeholder="Enter Link" required>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="button" class="cancelButton" id="cancelButton">Cancel</button>
+                        <button class="submitButton" type="submit">Create News</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </section>
+</html>

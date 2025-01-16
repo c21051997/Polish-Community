@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<head>
+    <title>Manage Users</title>
+    <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="/css/admin/userManageStyles.css">
+    <script src="/js/admin/admin.js" defer></script>
+</head>
+<section layout:fragment="content">
+    <h2>User Management</h2>
+    <div class="table-wrap">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${usersAdminInfo}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.fullName}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:field="${user.role}">
+                    <select id="roleDdl" th:onchange="|updateUserRole(${user.id})|">
+                        <option th:selected="${role.name==user.role}" th:each="role : ${roles}"
+                                th:text="${role.name}"></option>
+                    </select>
+                </td>
+                <td>
+                    <button id="btn-enable-disable"
+                            class="btn"
+                            th:onclick="|toggleUserEnabled(${user.id}, ${user.enabled})|">
+                        <span th:text="${user.enabled ? 'Disable' : 'Enable'}"></span>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</html>

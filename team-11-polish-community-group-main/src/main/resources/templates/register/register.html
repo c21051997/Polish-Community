@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/register/register.css">
+    <script src="/js/register/register.js" defer></script>
+</head>
+
+<section layout:fragment="content">
+    <h1>Create an Account</h1>
+
+    <div class="registerContainer" >
+
+        <!-- The form is bound to the 'user' object -->
+        <form th:action="@{/register}" th:method="post" th:object="${user}" class="registerForm">
+
+            <div class="registerField">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" th:field="*{fullname}" required placeholder="Full Name">
+                <span class="error"></span>
+            </div>
+
+            <div class="registerField">
+                <label for="email">Email</label>
+                <input type="email" id="email" th:field="*{email}" required placeholder="Email">
+                <span class="error"></span>
+            </div>
+
+            <div class="registerField">
+                <label for="password">Password</label>
+                <input type="password" id="password" th:field="*{password}" required placeholder="Password">
+                <div class="strength-container">
+                    <progress id="strengthBar" value="0" max="100"></progress>
+                    <span id="strengthMessage"></span>
+                </div>
+                <span class="error"></span>
+            </div>
+
+            <div class="registerField">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" required placeholder="Confirm Password">
+                <span class="error"></span>
+            </div>
+
+            <div class="registerField">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+<!--            <div class="registerField">-->
+<!--                <label for="roleId" >Role</label>-->
+<!--                <select name="roleId">-->
+<!--                    <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.name}"></option>-->
+<!--                </select>-->
+<!--            </div>-->
+            <input type="hidden" name="roleId"  value="1">
+
+            <div class="termsField">
+                <input type="checkbox" id="agreeTerms" required>
+                <label for="agreeTerms">
+                    I agree to the <a href="/terms" class="termsLink" target="_blank">Terms and Conditions</a>
+                </label>
+            </div>
+
+            <div class="registerButtonContainer">
+                <button type="submit" class="registerButton">Sign Up</button>
+            </div>
+
+            <div class="alreadyAccount">
+                <p>Already have an account? <a th:href="@{/login}" class="loginLink">Log in here</a>.</p>
+            </div>
+
+        </form>
+
+    </div>
+</section>
+</html>

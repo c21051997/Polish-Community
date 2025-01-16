@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/css/news/editNewsStyle.css">
+    <script src="/js/news/editNewsScript.js"></script>
+
+</head>
+<section layout:fragment="content" class="edit-news-page">
+    <h1>Edit or Delete News</h1>
+    <form th:action="@{/editNews/{id}(id=${news.news_id})}" th:object="${news}" method="post" onsubmit="return validateForm(event)">
+        <!-- Hidden field to hold the news ID -->
+        <input type="hidden" th:field="*{news_id}" />
+        <input type="hidden" th:field="*{user_id}" />
+
+        <!-- Title -->
+        <div>
+            <label for="news_title">Title:</label>
+            <input type="text" id="news_title" th:field="*{news_title}" />
+        </div>
+    
+        <!-- Summary -->
+        <div>
+            <label for="news_summary">Summary:</label>
+            <textarea id="news_summary" th:field="*{news_summary}" rows="4"></textarea>
+        </div>
+    
+        <!-- Source -->
+        <div>
+            <label for="news_source">Source:</label>
+            <input type="text" id="news_source" th:field="*{news_source}" />
+        </div>
+    
+        <!-- Link -->
+        <div>
+            <label for="news_link">Link:</label>
+            <input type="url" id="news_link" th:field="*{news_link}" />
+        </div>
+    
+        <!-- Image URL -->
+        <div>
+            <label for="news_image_url">Image URL:</label>
+            <input type="text" id="news_image_url" th:field="*{news_image_url}" />
+        </div>
+        
+
+        <!-- Upload Date -->
+        <div>
+            <label for="news_upload_date">Upload Date:</label>
+            <input type="date" id="news_upload_date" th:field="*{news_upload_date}" />
+        </div>
+    
+        <!-- Button Group -->
+        <div class="button-group">
+            <a th:href="@{/news}" class="linkCancel"><button type="button" class="btnCancel">Cancel</button></a>
+
+            <div class="buttonsRight">
+                <!-- Edit Button -->
+                <button type="submit" name="action" value="edit" class="btnSave">Save Changes</button>
+            
+                <!-- Delete Button -->
+                <button type="submit" name="action" value="delete" class="btnDelete" onclick="return confirmDelete(event)">Delete</button>
+            </div>
+
+        </div>
+    </form>
+</section>
+</html>
+

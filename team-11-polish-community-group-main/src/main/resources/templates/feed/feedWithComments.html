@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Feed</title>
+    <link rel="stylesheet" href="/css/feed/feed.css">
+</head>
+<body >
+<div class="container" layout:fragment="content">
+    <div class="hero-text">
+        <h1 > Welcome to the Feed Page</h1>
+    </div>
+    <!-- Sort By Filter -->
+    <div class="sort-container">
+        <label for="sortBy">Sort By:</label>
+        <select id="sortBy">
+            <option value="date">Date</option>
+            <option value="chronology">Chronology</option>
+        </select>
+    </div>
+
+    <!-- Posts Container (Scrollable) -->
+    <div id="postFeed" class="post-feed">
+        <!-- Loop through the posts list -->
+        <div th:each="post : ${posts}" class="post">
+            <div class="post-image">
+                <img th:src="${post.getPostImageUrl()}" alt="Post Image">
+            </div>
+            <div class="post-content">
+                <h3 class="post-title" th:text="${post.getPostTitle()}"></h3>
+                <p class="post-description" th:text="${post.getPostDescription()}"></p>
+                <div class="post-meta">
+                    <span class="author" th:text="'By ' + ${post.getAuthorName()}"></span>
+                    <span class="timestamp" th:text="${post.getPostTime()}"></span>
+                </div>
+                <!-- Include Comments Fragment -->
+                <!-- Fetch comments for this post -->
+                <div th:with="comments=${@commentService.findAllCommentsByPostId(post.getPostId())}">
+                    <th:block th:replace="comments/commentFragment :: commentsFragment(postId=${post.getPostId()}, comments=${comments})"></th:block>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/scripts.js"></script>
+</body>
+</html>

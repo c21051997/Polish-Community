@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="/css/aboutUs/aboutUs.css"></link>
+        <script src = "/js/aboutUs/aboutUs.js"></script>
+    </head>
+
+    <body layout:fragment="content">
+    <!-- Hero Section -->
+    <section class="hero">
+    </section>
+
+    <!-- About Content Section -->
+    <section class="about-content">
+        <h2>Our Mission</h2>
+        <p>We are a community-driven organization focused on creating positive change through collaboration, support, and innovation. Our mission is to bring people together, build connections, and foster growth.</p>
+
+        <h2>Core Values & Vision</h2>
+        <p>Our core values are based on integrity, inclusiveness, and a commitment to excellence. We envision a world where everyone has the opportunity to contribute and thrive in a supportive environment.</p>
+
+        <h2>Our History</h2>
+        <p>Founded in 2015, our community started with just a handful of passionate individuals dedicated to making a difference. Over the years, we have grown into a diverse group, constantly learning and evolving to meet the needs of our members.</p>
+
+        <!-- Containers for Mission, Vision, and History -->
+            <div class="about-values">
+                <div class="value-box">
+                    <h3>Integrity</h3>
+                    <p>We act with honesty and transparency in everything we do.</p>
+                </div>
+                <div class="value-box">
+                    <h3>Inclusiveness</h3>
+                    <p>We welcome and celebrate diversity, ensuring every voice is heard.</p>
+                </div>
+                <div class="value-box">
+                    <h3>Excellence</h3>
+                    <p>We strive for the highest standards in all of our actions.</p>
+                </div>
+            </div>
+            <a th:href="@{/register}" class="cta-button">Join Us</a>
+        </section>
+    </body>
+</html>

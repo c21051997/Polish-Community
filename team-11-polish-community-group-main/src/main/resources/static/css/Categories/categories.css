@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+.info-database {
+    font-family: "Inter", sans-serif;
+    padding: 20px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.title-section > h1 {
+    font-size: 32px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: var(--alternate-text);
+}
+
+.title-section > button {
+    display: flex;
+    gap: 15px;
+
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.card {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px 20px;
+    transition: transform 0.2s;
+    text-decoration: none;
+}
+
+.card > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card:hover {
+    transform: scale(1.005);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.card > div >  h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.card p {
+    color: #777;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.create-new-modal {
+    display: none; /* initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.modal-content {
+    background: var(--background-color);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.modal-header {
+    display: flex;
+    margin-bottom: 20px;
+}
+.modal-title-desc{
+    flex: 1;
+}
+
+.modal-title-desc > p{
+    color: #757575;
+    margin-top: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+form > label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+form > label > input,textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.cancel-button {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+#closeModalBtn {
+    cursor: pointer;
+}

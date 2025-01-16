@@ -1,0 +1,107 @@
+*{
+    box-sizing: border-box;
+
+}
+
+.container{
+    text-align: center;
+    max-width: 90%;
+    background-color: var(--primary-color);
+    /*background-image: linear-gradient(to right, var(--primary-color) 20%,var(--border-color));*/
+    color: var(--alternate-text);
+    margin: 2% auto;
+    box-shadow: 0px 0px 10px 1px var(--primary-color);
+    border-radius: 5px;
+}
+
+.head-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.sub-head-main-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+#editButtonLink button{
+    padding: 12px 20px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 30px;
+    box-shadow: 0px 0px 10px 1px var(--primary-color);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+#editButtonLink button:hover{
+    background-color: var(--border-color);
+    /*color: var(--secondary-color);*/
+    box-shadow: 0px 0px 1px 2px var(--text-color);
+}
+
+
+#markupcontent{
+    text-align: center;
+    padding: 0 8% 1% 8%;
+}
+
+#markupcontent h2{
+    margin-top: 3%;
+}
+
+#markupcontent h2,h3{
+    text-align: left;
+}
+
+#markupcontent img{
+    display: block; /* Makes the image behave like a block element */
+    margin: 20px auto; /* Centers the image horizontally and adds vertical spacing */
+    max-width: 100%; /* Ensures the image does not overflow the parent container */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 8px; /* Adds a slight rounding to the corners for better aesthetics */
+    box-shadow: 0px 4px 6px var(--primary-color);
+}
+
+#markupcontent p{
+    text-align: left;
+}
+
+#markupcontent li{
+    text-decoration: none;
+    text-align: left;
+}
+
+.head-container a{
+    margin: 0;
+    width: auto;
+    height: auto;
+    display: inline;
+}
+
+.head-container a img{
+    width: 30%;
+    height: 30%;
+    overflow: hidden;
+    /*background-color: #9a1750;*/
+}
+
+.main-content{
+    max-width: 100%;
+    /*background-color: #e3e2df;*/
+    color: var(--primary-color);
+    margin: auto;
+    background-image: linear-gradient(to right, var(--secondary-color),var(--background-color));
+    /* box-shadow: 0 0 10px 0px 2px #5d001e; */
+    height: auto;
+    border-radius: 0 0 2px 2px;
+    padding: 1%;
+}

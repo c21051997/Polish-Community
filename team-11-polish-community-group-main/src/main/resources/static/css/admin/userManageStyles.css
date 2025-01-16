@@ -1,0 +1,43 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 20px;
+}
+section{
+    padding: 2rem;
+}
+.table-wrap{
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+th {
+    background-color: #f4f4f4;
+}
+.btn {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 5px;
+}
+.btn-disable {
+    background-color: #f44336;
+}
+
+select {
+    width: 6rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+option {
+    padding: 5px 10px;
+}

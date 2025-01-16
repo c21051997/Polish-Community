@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="/css/events/event-detail.css">
+</head>
+<section layout:fragment="content">
+    <main id="event-detail-container">
+        <a th:href="@{/event}" id="backToHeadings" class="backButton">
+            <p><i class="bi bi-chevron-left"></i> <strong>Back to Events</strong></p>
+        </a>
+        <section class="event-detail-card">
+            <article class="image-container">
+                <img th:src="${event.getImageUrl()}" alt="Event Image" class="event-image">
+            </article>
+
+            <header>
+                <h1 th:text="${event.getEvent_title()}">Event Name</h1>
+            </header>
+
+            <section class="text-details">
+                <p><strong>Description:</strong> <span th:text="${event.getDescription()}">Event description</span></p>
+                <p><strong>Date and Time:</strong> <span th:text="${event.getEvent_date()}">Event date</span>, <span
+                        th:text="${event.getEvent_time()}">Event time</span></p>
+                <p><strong>Location:</strong> <span th:text="${event.getLocation()}">Event location</span></p>
+            </section>
+
+            <!-- Additional Event Information -->
+            <section class="event-benefits">
+                <h2>Why Should You Join?</h2>
+                <p th:text="${event.getWhyJoin()}">Reasons to join the event</p>
+            </section>
+
+            <section class="event-benefits">
+                <h2>Benefits of Joining</h2>
+                <ul>
+                    <li th:each="benefit : ${event.getBenefits()}">
+                        <span th:text="${benefit}">Benefit 1</span>
+                    </li>
+                </ul>
+            </section>
+
+            <footer>
+                <button class="register-button">Register Now</button>
+            </footer>
+        </section>
+    </main>
+</section>
+
+</html>

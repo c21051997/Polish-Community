@@ -1,0 +1,128 @@
+/* General Styles */
+/* Center the form on the screen */
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*height: 100vh;*/
+    padding: 0 20px;
+}
+
+/* Form styling */
+form {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add some shadow to give the form a floating effect */
+}
+
+/* Header */
+h1 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Label styling */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Input and Textarea Styling */
+input[type="text"], input[type="date"], input[type="time"], input[type="url"], textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: var(--background-color); /* Light background for inputs */
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Alert message styling for errors */
+.alert {
+    color: var(--secondary-color);
+    background-color: var(--border-color);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+}
+
+/* Button styling */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+/* Submit and Cancel button styling */
+button.submit {
+    background-color: #5bc0de;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.submit:hover {
+    background-color: #31b0d5;
+}
+
+#cancelButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+#cancelButton:hover {
+    background-color: #e53935;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    section {
+        padding: 20px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}

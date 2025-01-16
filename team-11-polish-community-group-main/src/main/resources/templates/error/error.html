@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <link rel="stylesheet" href="/error/error.css">
+</head>
+<body layout:fragment="content">
+<div id="error-container">
+    <h1 id="error-code">Error</h1>
+    <p id="error-message"></p>
+</div>
+// passing the error code to javascript
+<script th:inline="javascript">
+    window.errorCode = [[${statusCode}]]
+</script>
+<script src="/js/Error/error.js"></script>
+</body>
+</html>

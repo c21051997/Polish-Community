@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    <link rel="stylesheet" href="/css/home/home.css">
+</head>
+
+    <section layout:fragment="content">
+        <h1 data-translate-key="home.header">Welcome to our Community</h1>
+        <p data-translate-key="home.smallheader">Connect, Share, and Grow Together</p>
+    
+        <section class="tiles">
+            <div class="tile" id="feedTile">
+                <a th:href="@{/feed}" class="tileLink">
+                    <div class="topTile">
+                        <img src="/assets/navbarImages/feed.png" class="tile-logo"><span class="tile-title" data-translate-key="navbar.feed">Feed</span>
+                    </div>
+                    <p class="tile-description" data-translate-key="home.latest_posts">Stay updated with the latest posts</p>
+                </a>
+            </div>
+
+            <div class="tile" id="newsTile">
+                <a th:href="@{/news}" class="tileLink">
+                    <div class="topTile">
+                        <img src="/assets/navbarImages/news.png" class="tile-logo"><span class="tile-title" data-translate-key="navbar.news">News</span>
+                    </div>
+                    <p class="tile-description" data-translate-key="home.news">Discover the latest community news</p>
+                </a>
+            </div>
+
+            <div class="tile" id="eventsTile">
+                <a th:href="@{/event}" class="tileLink">
+                    <div class="topTile">
+                        <img src="/assets/navbarImages/events.png" class="tile-logo"><span class="tile-title" data-translate-key="navbar.events">Events</span>
+                    </div>
+                    <p class="tile-description" data-translate-key="home.events">Join our upcoming community events</p>
+                </a>
+            </div>
+
+            <div class="tile" id="infoTile">
+                <a th:href="@{/categories}" class="tileLink">
+                    <div class="topTile">
+                        <img src="/assets/navbarImages/info.png" class="tile-logo"><span class="tile-title" data-translate-key="navbar.db_info">Info Database</span>
+                    </div>
+                    <p class="tile-description" data-translate-key="home.db_info">Access our community information database</p>
+                </a>
+            </div>
+            
+            <div class="tile" id="aboutTile">
+                <a th:href="@{/aboutUs}" class="tileLink">
+                    <div class="topTile">
+                        <img src="/assets/navbarImages/about.png" class="tile-logo"><span class="tile-title" data-translate-key="navbar.about_us">About Us</span>
+                    </div>
+                    <p class="tile-description" data-translate-key="home.about_us">Learn about our mission and values</p>
+                </a>
+            </div>
+
+        </section>
+    
+        <h1 data-translate-key="home.join_community">Join Our Thriving Community Today!</h1>
+        <p data-translate-key="home.tagline">Connect with like-minded individuals, share your ideas, and be part of something amazing</p>
+        <a th:href="@{/register}"><button data-translate-key="home.get_started">Get Started</button></a>
+    </section>
+    
+
+
+</html>

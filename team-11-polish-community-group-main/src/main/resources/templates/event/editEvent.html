@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Event</title>
+    <link rel="stylesheet" href="/css/events/editEvent.css"></link>
+</head>
+<section layout:fragment="content">
+    <h1>Add New Information</h1>
+    <form th:action="@{/event/editEvent}" th:method="post" th:object="${editEvent}" id="addEventForm">
+                    <!-- Hidden Event ID -->
+                  <input th:field="*{event_id}" type="hidden" />
+
+            <!-- Event Title -->
+            <label th:for="*{event_title}">Event Title</label>
+            <input type="text" th:field="*{event_title}" placeholder="Enter the title for the event...">
+            <div class="alert alert-warning" th:errors="*{event_title}" th:if="${#fields.hasErrors('event_title')}">Title Error</div>
+
+            <!-- Event Description -->
+            <label th:for="*{description}">Event Description</label>
+            <textarea th:field="*{description}" placeholder="Enter the event description..."></textarea>
+            <div class="alert alert-warning" th:errors="*{description}" th:if="${#fields.hasErrors('description')}">Description Error</div>
+
+            <!-- Event Date -->
+            <label th:for="*{event_date}">Event Date</label>
+            <input type="date" th:field="*{event_date}">
+            <div class="alert alert-warning" th:errors="*{event_date}" th:if="${#fields.hasErrors('event_date')}">Date Error</div>
+
+            <!-- Event Time -->
+            <label th:for="*{event_time}">Event Time</label>
+            <input type="time" th:field="*{event_time}">
+            <div class="alert alert-warning" th:errors="*{event_time}" th:if="${#fields.hasErrors('event_time')}">Time Error</div>
+
+            <!-- Location -->
+            <label th:for="*{location}">Location</label>
+            <input type="text" th:field="*{location}" placeholder="Enter the event location...">
+            <div class="alert alert-warning" th:errors="*{location}" th:if="${#fields.hasErrors('location')}">Location Error</div>
+
+            <!-- Image URL -->
+            <label th:for="*{imageUrl}">Image URL</label>
+            <input type="text" th:field="*{imageUrl}" placeholder="Enter the image URL...">
+            <div class="alert alert-warning" th:errors="*{imageUrl}" th:if="${#fields.hasErrors('imageUrl')}">Image URL Error</div>
+
+            <!-- Why Join -->
+            <label th:for="*{whyJoin}">Why Join</label>
+            <textarea th:field="*{whyJoin}" placeholder="Explain why someone should join..."></textarea>
+            <div class="alert alert-warning" th:errors="*{whyJoin}" th:if="${#fields.hasErrors('whyJoin')}">Why Join Error</div>
+
+            <!-- Benefits -->
+            <label th:for="*{benefits}">Benefits</label>
+            <textarea th:field="*{benefits}" placeholder="List the benefits..."></textarea>
+            <div class="alert alert-warning" th:errors="*{benefits}" th:if="${#fields.hasErrors('benefits')}">Benefits Error</div>
+
+        <!-- Buttons -->
+            <div class="buttons">
+                <a href="#" id="cancelButton" class="button cancel">Cancel</a>
+                <button type="submit" class="submit">Add Event</button>
+            </div>
+    </form>
+</section>
+</html>

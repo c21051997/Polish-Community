@@ -1,0 +1,57 @@
+.sidebar {
+    font-family: Arial, sans-serif;
+    position: fixed;
+    left: 0;
+    top: 50%; 
+    transform: translateY(-50%); /* combined with the top it centers the nav bar*/
+    background-color: #EE4C7C;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 0 10px 10px 0; /* round only the right corners */
+    width: 20px;
+}
+
+.sidebar .navLink {
+    padding: 10px;
+    color: #E3E2DF;
+    text-decoration: none;
+    
+}
+
+.sidebar:hover {
+    width: 150px; 
+}
+
+.sidebar .navLink:hover {
+    background-color: #9A1750;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+/* for showing text when the sidebar is hovered */
+.sidebar:hover .navText {
+    display: inline-block; 
+    opacity: 1; 
+}
+
+
+.navIcons {
+    width: 25px; 
+    height: 25px; 
+    margin-right: 10px;
+    vertical-align: middle; 
+    
+}
+
+.navText {
+    display: none; 
+    opacity: 0; /* for hiding text */
+    margin-left: 10px; /* for space between the icon and the text */
+}
+
+.mainContent {
+    padding-left: 80px; 
+}

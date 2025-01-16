@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/css/contact/contact.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcnCewJfgcEPXtBPkokQwJXcOwUy-9iwI&callback=initMap" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+</head>
+<body layout:fragment="content">
+
+    <h1 id="title">Contact Us</h1>
+    <!-- Contact Form Section -->
+    <section id="contact-form">
+
+        <!-- Contact Form Container -->
+        <div id="contact-form-container">
+            <h2>Get in Touch</h2>
+            <form id="contactForm" action="/submit" method="POST" novalidate>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+
+                <div id="formFeedback"></div>
+                
+                <button type="submit" id="submitButton">Submit</button>
+            </form>
+        </div>
+
+        <!-- Contact Information Container -->
+        <div id="contact-info-container">
+            <h3>Contact Information</h3>
+            <p><strong>Phone:</strong> +123456789</p>
+            <p><strong>Email:</strong> contact@domain.com</p>
+            <p><strong>Address:</strong> 123 Street, City, Country</p>
+
+            <a href="https://www.facebook.com/LudekPCG" class="social-icon"><img src="/assets/navbarImages/facebook.png" alt="Facebook"></a>
+            <a href="#" class="social-icon"><img src="/assets/navbarImages/twitter.png" alt="Twitter"></a>
+            <a href="#" class="social-icon"><img src="/assets/navbarImages/instagram.png" alt="Instagram"></a>
+        </div>
+
+    </section>
+
+
+
+     <!-- FAQ Section -->
+     <section id="faq">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3 class="faq-question">What is the community?</h3>
+            <p class="faq-answer">Our community is a group of people who support and connect with each other.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">How can I join the community?</h3>
+            <p class="faq-answer">You can join by signing up through the main page or by contacting us directly.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">How do I contact support?</h3>
+            <p class="faq-answer">You can reach out to us through the contact form above.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">How many users are currently on the platform?</h3>
+            <div class="faq-answer">
+                <canvas id="userChart" width="400" height="200"></canvas> <!-- The canvas for the chart -->
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3 class="faq-question">Where are you located?</h3>
+            <p class="faq-answer">We are located in the heart of the city. You can find us on the map below!</p>
+            
+            <!-- Interactive Map -->
+            <div id="map" style="height: 400px;"></div> <!-- Map container -->
+        </div>
+    </section>
+
+    <script src="/js/contact/contact.js"></script>
+</body>
+</html>
+

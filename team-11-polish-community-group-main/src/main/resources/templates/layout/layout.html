@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <meta name="viewport" CHARSET="UTF-8" content="width=device-width, initial-scale=1">
+
+    <title>Ludek Polonia Wajiska</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/comments/comments.css">
+    <link rel="stylesheet" href="/css/layout/layout.css">
+
+</head>
+<body>
+<header class="header">
+    <section class="sidebar">
+        <nav class="sidebar">
+            <div class="navLeft">
+                <a th:href="@{/}" class="logoLink">
+                    <img src="/assets/navbarImages/logo.png" class="logoImage"><span class="navText">Ludek Polonia Wajiska</span>
+                </a>
+            </div>
+
+            <div class="navMiddle">
+                <a th:href="@{/}" class="navLink">
+                    <img src="/assets/navbarImages/home.png" class="navIcons"><span class="navText"
+                                                                                    data-translate-key="navbar.home">Home</span>
+                </a>
+                <a th:href="@{/feed}" class="navLink">
+                    <img src="/assets/navbarImages/feed.png" class="navIcons"><span class="navText"
+                                                                                    data-translate-key="navbar.feed">Feed</span>
+                </a>
+                <a th:href="@{/news}" class="navLink">
+                    <img src="/assets/navbarImages/news.png" class="navIcons"><span class="navText"
+                                                                                    data-translate-key="navbar.news">News</span>
+                </a>
+                <a th:href="@{/event}" class="navLink">
+                    <img src="/assets/navbarImages/events.png" class="navIcons"><span class="navText"
+                                                                                      data-translate-key="navbar.events">Events</span>
+                </a>
+                <a th:href="@{/categories}" class="navLink">
+                    <img src="/assets/navbarImages/info.png" class="navIcons"><span class="navText"
+                                                                                    data-translate-key="navbar.db_info">Info Database</span>
+                </a>
+                <a th:href="@{/aboutUs}" class="navLink">
+                    <img src="/assets/navbarImages/about.png" class="navIcons"><span class="navText"
+                                                                                     data-translate-key="navbar.about_us">About Us</span>
+                </a>
+                <a th:href="@{/contactus}" class="navLink">
+                    <img src="/assets/navbarImages/contact.png" class="navIcons"><span class="navText"
+                                                                                       data-translate-key="navbar.contact_us">Contact Us</span>
+                </a>
+            </div>
+
+            <!-- Right Section: Language Selector and Profile -->
+            <div class="navRight">
+                <!-- Language Selector -->
+                <div class="languageSelector">
+                    <img src="/assets/navbarImages/globe.png" class="navIcons">
+                    <select name="language">
+                        <option value="en">English</option>
+                        <option value="pl">Polish</option>
+                    </select>
+                </div>
+
+                <!-- Profile -->
+                <div id="account-options">
+                        <div sec:authorize="isAnonymous()">
+                            <img src="/assets/navbarImages/profile.png" class="navIcons anonymous proficon">
+                            <span class="navText" style="color: black">Sign in</span>
+                            <div class="dropdown-content">
+                                <a class="dropdown-nav-link" th:href="@{/login}">Login</a>
+                                <a class="dropdown-nav-link" th:href="@{/register}">Sign up</a>
+                            </div>
+                        </div>
+                        <div sec:authorize="isAuthenticated()">
+                            <img src="/assets/navbarImages/profile.png" class="navIcons authenticated proficon">
+                            <span class="navText"data-translate-key="navbar.profile" style="color: black">Profile</span>
+                            <div class="dropdown-content">
+                                <a class="navLink" th:href="@{/profile}">View profile</a>
+                                <a class="navLink" th:href="@{/logout}">Logout</a>
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+        </section>
+    </header>
+
+<div class="mainBody">
+    <main layout:fragment="content" class="content"></main>
+</div>
+
+<footer class="footer">
+    <div class="footer-section about">
+        <h3 class="footerTitle">Ludek Polonia Wajiska</h3>
+        <p class="footerText" data-translate-key="footer.tagline">Connecting people, sharing ideas, and building a
+            better future together.</p>
+    </div>
+
+    <div class="footer-section links">
+        <h3 class="footerTitle" data-translate-key="footer.quick_links">Quick Links</h3>
+        <ul class="footerLinks">
+            <li><a th:href="@{/aboutus}" class="footerLink" data-translate-key="navbar.about_us">About Us</a></li>
+            <li><a th:href="@{/contact}" class="footerLink" data-translate-key="navbar.contact">Contact</a></li>
+            <li><a th:href="@{/}" class="footerLink" data-translate-key="footer.privacy_policy">Privacy Policy</a></li>
+            <li><a th:href="@{/}" class="footerLink" data-translate-key="footer.terms_of_service">Terms of Service</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="footer-section connect">
+        <h3 class="footerTitle" data-translate-key="footer.connect_with_us">Connect with us</h3>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/LudekPCG" class="social-icon"><img src="/assets/navbarImages/facebook.png"
+                                                                                 alt="Facebook"></a>
+            <a href="#" class="social-icon"><img src="/assets/navbarImages/twitter.png" alt="Twitter"></a>
+            <a href="#" class="social-icon"><img src="/assets/navbarImages/instagram.png" alt="Instagram"></a>
+        </div>
+    </div>
+</footer>
+<script src="/js/layout/layout.js" defer></script>
+<script th:replace="~{comments/commentFragment::commentScript}"></script>
+    <script src="/js/layout/accountDropdown.js"></script>
+</body>
+</html>
