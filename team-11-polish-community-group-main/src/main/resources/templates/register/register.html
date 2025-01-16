@@ -9,10 +9,10 @@
     <script src="/js/register/register.js" defer></script>
 </head>
 
-<section layout:fragment="content">
+<body>
     <h1>Create an Account</h1>
-
-    <div class="registerContainer" >
+    
+    <div class="registerContainer" layout:fragment="content">
 
         <!-- The form is bound to the 'user' object -->
         <form th:action="@{/register}" th:method="post" th:object="${user}" class="registerForm">
@@ -37,7 +37,7 @@
                     <span id="strengthMessage"></span>
                 </div>
                 <span class="error"></span>
-            </div>
+            </div>            
 
             <div class="registerField">
                 <label for="confirmPassword">Confirm Password</label>
@@ -50,13 +50,12 @@
                 <input type="date" id="dob" name="dob" required>
             </div>
 
-<!--            <div class="registerField">-->
-<!--                <label for="roleId" >Role</label>-->
-<!--                <select name="roleId">-->
-<!--                    <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.name}"></option>-->
-<!--                </select>-->
-<!--            </div>-->
-            <input type="hidden" name="roleId"  value="1">
+            <div class="registerField">
+                <label for="roleId">Role</label>
+                <select name="roleId">
+                    <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.name}"></option>
+                </select>            
+            </div>
 
             <div class="termsField">
                 <input type="checkbox" id="agreeTerms" required>
@@ -72,9 +71,9 @@
             <div class="alreadyAccount">
                 <p>Already have an account? <a th:href="@{/login}" class="loginLink">Log in here</a>.</p>
             </div>
-
+    
         </form>
-
+    
     </div>
-</section>
+</body>
 </html>

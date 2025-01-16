@@ -72,16 +72,16 @@
                 <!-- Profile -->
                 <div id="account-options">
                         <div sec:authorize="isAnonymous()">
-                            <img src="/assets/navbarImages/profile.png" class="navIcons anonymous proficon">
-                            <span class="navText" style="color: black">Sign in</span>
+                            <img src="/assets/navbarImages/profile.png" class="navIcons anonymous">
+                            <span class="navText">Sign in</span>
                             <div class="dropdown-content">
                                 <a class="dropdown-nav-link" th:href="@{/login}">Login</a>
                                 <a class="dropdown-nav-link" th:href="@{/register}">Sign up</a>
                             </div>
                         </div>
                         <div sec:authorize="isAuthenticated()">
-                            <img src="/assets/navbarImages/profile.png" class="navIcons authenticated proficon">
-                            <span class="navText"data-translate-key="navbar.profile" style="color: black">Profile</span>
+                            <img src="/assets/navbarImages/profile.png" class="navIcons authenticated">
+                            <span class="navText"data-translate-key="navbar.profile">Profile</span>
                             <div class="dropdown-content">
                                 <a class="navLink" th:href="@{/profile}">View profile</a>
                                 <a class="navLink" th:href="@{/logout}">Logout</a>
@@ -123,6 +123,10 @@
             <a href="#" class="social-icon"><img src="/assets/navbarImages/twitter.png" alt="Twitter"></a>
             <a href="#" class="social-icon"><img src="/assets/navbarImages/instagram.png" alt="Instagram"></a>
         </div>
+    </div>
+
+    <div class="footer-section copyright">
+        <p class="footerCompanyName">&copy; LUDEK PCG ltd. <span data-translate-key="footer.all_rights_reserved" >All rights reserved.</span></p>
     </div>
 </footer>
 <script src="/js/layout/layout.js" defer></script>

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/layout}"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
->
+      layout:decorate="~{layout/layout}">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +13,7 @@
     <section layout:fragment="content" class="content">
         <div class="general-headings-layout">
                 <h1>Community News</h1>
-                <button onclick="openNewsForm()" id="openModalBtn" class="openModalBtn" sec:authorize="isAuthenticated()"  >Add News</button>
+                <button onclick="openNewsForm()" id="openModalBtn" class="openModalBtn">Add News</button>
         </div>
         <main class="news-container">
             <!-- Main news card -->
@@ -31,7 +29,7 @@
                 </div>
                 <div class="card-footer">
                     <p class="source">Source: <span th:text="${newsList[0].getNews_source()}"></span></p>
-                    <a th:href="@{/editNews/{id}(id=${newsList[0].getNews_id()})}" class="modify-btn modify-link" sec:authorize="isAuthenticated()"  >Modify</a>
+                    <a th:href="@{/editNews/{id}(id=${newsList[0].getNews_id()})}" class="modify-btn modify-link">Modify</a>
                     <p class="date" th:text="${newsList[0].getNews_upload_date()}"></p>
                 </div>
             </div>
@@ -44,7 +42,7 @@
                     <div class="card-footer">
                         <p class="source">Source: <span th:text="${news.getNews_source()}"></span></p>
                         <p class="date" th:text="${news.getNews_upload_date()}"></p>
-                        <a th:href="@{/editNews/{id}(id=${news.getNews_id()})}" class="modify-btn modify-link" sec:authorize="isAuthenticated()">Modify</a>
+                        <a th:href="@{/editNews/{id}(id=${news.getNews_id()})}" class="modify-btn modify-link">Modify</a>
                     </div>
                 </div>
             </div>

@@ -3,11 +3,13 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #f4f4f9;
     font-family: Arial, sans-serif;
     padding-top: 80px;
 }
 
 #title{
+ 
     color: black; 
     text-align: center; 
     font-size: 35px;
@@ -26,9 +28,6 @@ body {
 /* FAQ Section */
 #faq {
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .faq-question {

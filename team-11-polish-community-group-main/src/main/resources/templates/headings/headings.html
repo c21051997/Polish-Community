@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/layout}"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
->
+      layout:decorate="~{layout/layout}">
 <head>
     <title>Category Headings</title>
     <link rel="stylesheet" href="/css/headings/headings.css">
@@ -17,9 +15,9 @@
 
         <div class="buttons">
             <button id="delete-button" disabled>Delete</button>
-            <button id="edit-mode-button" sec:authorize="isAuthenticated()" >Edit</button>
+            <button id="edit-mode-button">Edit</button>
             <a id="addInfo">
-                <button id="add-new-information" sec:authorize="isAuthenticated()" >
+                <button id="add-new-information">
                     <i class="bi bi-folder-plus"></i>
                     New Information
                 </button>

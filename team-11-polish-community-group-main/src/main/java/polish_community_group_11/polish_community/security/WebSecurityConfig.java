@@ -37,7 +37,7 @@ public class WebSecurityConfig {
     private final String[] whiteListingPath = {
 //            "/event",
 //            "event/*"
-            "/feed"
+//            "/api/feed/**" ,
     };
 
     public WebSecurityConfig(UserService userService, RoleService roleService) {

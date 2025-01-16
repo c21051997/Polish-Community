@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/layout}"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
->
+      layout:decorate="~{layout/layout}">
     <head>
         <meta charset="UTF-8">
         <!--Custom styles-->
@@ -26,7 +24,7 @@
                     <h1 th:text="${selectedInfo.getInfoTitle()}">Information Title</h1>
                 </section>
                 <aside class="sub-head-edit-container">
-                    <a id="editButtonLink" th:href="@{/info/edit/{id} (id=${selectedInfo.getInformationId()})}" sec:authorize="isAuthenticated()" >
+                    <a id="editButtonLink" th:href="@{/info/edit/{id} (id=${selectedInfo.getInformationId()})}">
                         <button><strong>Edit</strong></button></a>
                 </aside>
             </section>

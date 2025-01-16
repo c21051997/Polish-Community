@@ -4,7 +4,6 @@ section {
    display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 30px;
 }
 
 
@@ -56,7 +55,6 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Space out the content inside the tile */
-    transition:transform ease-in-out;
 }
 
 /* Logo and title container */
@@ -99,12 +97,8 @@ button:hover {
     height: 100%; /* Ensures the link takes full height of the tile */
 }
 
-.tile:hover{
-    transform: scale(1.03);
-}
-
 .tileLink:hover {
-    /*background-color: #f0f0f0; !* Light background on hover *!*/
+    background-color: #f0f0f0; /* Light background on hover */
     border-radius: 10px;
     transition: background-color 0.3s ease;
 }

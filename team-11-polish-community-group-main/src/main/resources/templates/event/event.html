@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/layout}"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
->
+      layout:decorate="~{layout/layout}">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +12,7 @@
         <div id="event-details" class="event-details">
             <div class="general-headings-layout">
                 <h1>Community Events</h1>
-                <a th:href="@{event/add}"><button class="add-event-button" sec:authorize="isAuthenticated()" >Add Event</button></a>
+                <a th:href="@{event/add}"><button class="add-event-button">Add Event</button></a>
             </div>
             <div class="event-grid">
             <!-- Loop through each event and create a clickable link -->
@@ -30,9 +28,9 @@
                   <p><strong>Location:</strong> <span th:text="${event.getLocation()}">Event location</span></p>
                 </a>
               </div>
-                <div class ="event-card-button" sec:authorize="isAuthenticated()">
+                <div class ="event-card-button">
                     <button class="register-button">Register Now</button>
-                    <a th:href="@{/event/edit/{id}(id=${event.getEvent_id()})}" class="event-link"  ><button>Edit Event</button></a>
+                    <a th:href="@{/event/edit/{id}(id=${event.getEvent_id()})}" class="event-link"><button>Edit Event</button></a>
                 </div>
             </div>
           </div>
